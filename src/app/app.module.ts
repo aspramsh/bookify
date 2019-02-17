@@ -6,16 +6,16 @@ import {RouterModule, Routes} from "@angular/router";
 import { AppComponent } from './app.component';
 import { PartialMaterialModule } from './core/material.module';
 import { NavigationComponent } from './navigation/navigation.component';
-import { PopularBooksComponent } from './popular-books/popular-books.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
-  { path: '', component: PopularBooksComponent, data: { title: 'Popular Books' } }
+  { path: '', component: SearchComponent, data: { title: 'Search for Books' } }
 ];
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    PopularBooksComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
