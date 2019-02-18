@@ -7,10 +7,9 @@ import { AppComponent } from './app.component';
 import { PartialMaterialModule } from './core/material.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
+import { routes } from './core/routes';
 
-const appRoutes: Routes = [
-  { path: '', component: SearchComponent, data: { title: 'Search for Books' } }
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +21,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     PartialMaterialModule,
     RouterModule.forRoot(
-      appRoutes,
-      { useHash: true } // <-- debugging purposes only
+      routes
     ),
   ],
   providers: [],

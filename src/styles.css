@@ -7,3 +7,26 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     background: #2E8B57;
     color: #fff;
   }
+
+  /** Overrides underline color **/
+.mat-form-field.mat-form-field-appearance-legacy .mat-form-field-underline,
+.mat-form-field.mat-form-field-appearance-legacy .mat-form-field-ripple,
+.mat-form-field.mat-form-field-appearance-legacy.mat-focused
+    .mat-form-field-underline,
+.mat-form-field.mat-form-field-appearance-legacy.mat-focused
+    .mat-form-field-ripple {
+    background-color: #2E8B57;
+}
+
+/** Overrides label color **/
+.mat-form-field.mat-form-field-appearance-legacy .mat-form-field-label,
+.mat-form-field.mat-form-field-appearance-legacy.mat-focused
+	.mat-form-field-label {
+	color: #2E8B57;
+}
+
+/** Overrides caret & text color **/
+.mat-form-field.mat-form-field-appearance-legacy .mat-input-element {
+	caret-color: #2E8B57;
+  color: #2E8B57;
+}
