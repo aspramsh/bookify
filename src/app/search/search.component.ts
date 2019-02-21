@@ -8,5 +8,9 @@ import { Component } from "@angular/core";
     ]
 })
 export class SearchComponent {
-
+    searchValue: string = '';
+    
+    onEnter(value: string) { 
+        this.searchValue = value; 
+    }
 }

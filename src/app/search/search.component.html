@@ -2,10 +2,11 @@
     <span><img src="./assets/search.jpg" class="center"></span>
 
     <mat-form-field class="example-full-width">
-      <input type="search" matInput placeholder="search for books">
+      <input type="search" matInput #box (keydown.enter)="onEnter(box.value)" placeholder="search for books"
+        [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
-    <button mat-raised-button class="center-button">Discover</button>
+    <button mat-raised-button class="center-button"(click)=(onEnter(box.value))>Discover</button>
     
   </form>
