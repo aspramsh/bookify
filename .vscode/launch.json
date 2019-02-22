@@ -6,8 +6,7 @@
         "type": "chrome",
         "request": "launch",
         "url": "http://localhost:4200/",
-        "webRoot": "${workspaceFolder}",
-        "port": 4200
+        "webRoot": "${workspaceFolder}"
       },
       {
         "name": "Attach Chrome",
@@ -15,7 +14,6 @@
         "request": "attach",
         "url": "http://localhost:4200/",
         "webRoot": "${workspaceFolder}",
-        "port": 4200
       },
       {
         "name": "Launch Chrome (Test)",
