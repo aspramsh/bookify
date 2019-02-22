@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
-import { ConfigService } from "../config/config.service";
-import {  Config } from "../Interfaces/config";
+import { HttpService } from "../http/http.service";
+import { Book } from "../Interfaces/book";
+import { stringify } from "querystring";
 
 @Component({
     selector: 'search-component',
@@ -10,29 +11,34 @@ import {  Config } from "../Interfaces/config";
         './search.component.css'
     ]
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent implements OnInit {
     searchValue: string = '';
 
-    config: Config;
+    books: Book[];
 
-    constructor(private configService: ConfigService) {}
+    constructor(private httpService: HttpService) {}
 
     ngOnInit() {
-        this.showConfig();
+        
     }
 
-    showConfig() {
-        this.configService.getConfig()
-          .subscribe((data: Config) => this.config = {
-            searchUrl: data['searchUrl']
-          });
-      }
-
-    ngOnDestroy() {
-
+    private getBooksByQuery(tokens: string[]) {
+        let query: string = tokens[0];
+        for (let i = 1; i < tokens.length; ++i) {
+            query += '+' + tokens[i];
+        }
+        
+        this.httpService.getBooks(query)
+          .subscribe((data) => {
+          this.books = <Book[]>data['items'];
+          let e: string = this.books[0].id;
+        });
     }
 
     onEnter(value: string) { 
-        this.searchValue = value; 
+        this.searchValue = value;
+        let tokens: string[] = value.split(" ");
+
+        this.getBooksByQuery(tokens);
     }
 }

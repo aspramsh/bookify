@@ -10,7 +10,7 @@ import { PartialMaterialModule } from './core/material.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
 import { routes } from './core/routes';
-import { ConfigService } from './config/config.service';
+import { HttpService } from './http/http.service';
 
 
 @NgModule({
@@ -30,8 +30,9 @@ import { ConfigService } from './config/config.service';
     HttpClientModule
   ],
   providers: [
-    ConfigService
+    HttpService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
