@@ -1,3 +1,18 @@
 .example-card {
     max-width: 500px;
   }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 1.25rem;
+    color: #d3d3d3;
+  }
+  .full {
+    color: #2E8B57;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #2E8B57;
+  }

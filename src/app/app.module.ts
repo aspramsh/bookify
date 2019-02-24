@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { routes } from './core/routes';
 import { HttpService } from './http/http.service';
@@ -32,6 +33,7 @@ import { BooksCollectionComponent } from './books/books-collection.component';
     FlexLayoutModule,
     PartialMaterialModule,
     PartialPrimeNgModule,
+    NgbModule,
     RouterModule.forRoot(
       routes
     ),
