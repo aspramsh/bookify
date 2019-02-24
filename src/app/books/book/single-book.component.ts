@@ -13,6 +13,8 @@ export class SingleBookComponent implements OnInit{
     
     constructor() { }
 
+    starList: string[] = [];
+
     ngOnInit() {
         this.book = {
             id: "POny_3SvXIkC",
@@ -24,11 +26,26 @@ export class SingleBookComponent implements OnInit{
                 categories: [
                     "Biography & Autobiography"
                 ],
-                averageRating: 3.6,
+                averageRating: 4.2,
                 imageLinks: {
                     smallThumbnail: "http://books.google.com/books/content?id=POny_3SvXIkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
                 }
             }
+        }
+
+        this.createStarList();
+    }
+
+    createStarList(): void {
+        let i = 1;
+        for(i = 1; i<=5; i++) {
+            if (i <= this.book.volumeInfo.averageRating) {
+              this.starList.push("fa fa-star");
+            }
+        }
+
+        if (this.book.volumeInfo.averageRating % 1 > 0) {
+            this.starList.push("fa fa-star-half-o");
         }
     }
     

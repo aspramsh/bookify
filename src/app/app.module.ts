@@ -15,7 +15,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
 import { SingleBookComponent } from './books/book/single-book.component';
 import { BooksCollectionComponent } from './books/books-collection.component';
-import { StarComponent } from './books/book/star-rating/star.component';
 
 
 @NgModule({
@@ -24,8 +23,7 @@ import { StarComponent } from './books/book/star-rating/star.component';
     NavigationComponent,
     SearchComponent,
     BooksCollectionComponent,
-    SingleBookComponent,
-    StarComponent
+    SingleBookComponent
   ],
   imports: [
     BrowserModule,

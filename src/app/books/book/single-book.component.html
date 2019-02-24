@@ -6,8 +6,10 @@
           <h3>{{book.volumeInfo.title}}</h3>
             <h5>by {{book.volumeInfo.authors[0]}}</h5>
             <p>Category: {{book.volumeInfo.categories[0]}}</p>
-            <pm-star [rating]="book.volumeInfo.averageRating"></pm-star>
-          <button mat-raised-button class="center-button" style="margin-top: 10px">Details</button>
+            <p><span *ngFor="let star of starList">
+                <i class="{{star}}" style="color: orange"></i>
+            </span> - {{book.volumeInfo.averageRating}} avg rating</p>
+          <button mat-raised-button class="center-button">Details</button>
           </mat-card-content>
       </div>
     </mat-card>
