@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 
 import { HttpService } from "../http/http.service";
 import { Book } from "../Interfaces/book";
-import { stringify } from "querystring";
 
 @Component({
     selector: 'search-component',
@@ -19,7 +18,7 @@ export class SearchComponent implements OnInit {
     constructor(private httpService: HttpService) {}
 
     ngOnInit() {
-        
+        let e: number = 0;
     }
 
     private getBooksByQuery(tokens: string[]) {
@@ -31,7 +30,6 @@ export class SearchComponent implements OnInit {
         this.httpService.getBooks(query)
           .subscribe((data) => {
           this.books = <Book[]>data['items'];
-          let e: string = this.books[0].id;
         });
     }
 

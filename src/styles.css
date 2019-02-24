@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import 'font-awesome/css/font-awesome.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 
@@ -29,4 +29,12 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .mat-form-field.mat-form-field-appearance-legacy .mat-input-element {
 	caret-color: #2E8B57;
   color: #2E8B57;
+}
+
+.center-button {
+  display: block;
+  width: 30%;
+  margin: 10px auto 20px;
+  background-color: #2E8B57;
+  color: white
 }
