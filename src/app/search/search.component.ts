@@ -18,7 +18,6 @@ export class SearchComponent implements OnInit {
     constructor(private httpService: HttpService) {}
 
     ngOnInit() {
-        let e: number = 0;
     }
 
     private getBooksByQuery(tokens: string[]) {
