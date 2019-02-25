@@ -4,16 +4,26 @@ import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 import { Config } from '../Interfaces/config';
+import { Book } from '../Interfaces/book';
 
 
 @Injectable()
-export class ConfigService {
+export class HttpService {
     configUrl = 'assets/config.json';
+    bookSearchUrl = "https://www.googleapis.com/books/v1/volumes?q=";
 
     constructor(private http: HttpClient) { }
     
     getConfig() {
         return this.http.get<Config>(this.configUrl)
+        .pipe(
+            retry(3),
+            catchError(this.handleError)
+        );
+    }
+
+    getBooks(query: string) {
+      return this.http.get<Book[]>(this.bookSearchUrl + query)
         .pipe(
             retry(3),
             catchError(this.handleError)

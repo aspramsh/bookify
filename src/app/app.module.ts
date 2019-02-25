@@ -4,34 +4,45 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { routes } from './core/routes';
+import { HttpService } from './http/http.service';
 import { AppComponent } from './app.component';
 import { PartialMaterialModule } from './core/material.module';
+import { PartialPrimeNgModule } from './core/primeng.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
-import { routes } from './core/routes';
-import { ConfigService } from './config/config.service';
+import { SingleBookComponent } from './books/book/single-book.component';
+import { BooksCollectionComponent } from './books/books-collection.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    SearchComponent
+    SearchComponent,
+    BooksCollectionComponent,
+    SingleBookComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
     PartialMaterialModule,
+    PartialPrimeNgModule,
+    NgbModule,
     RouterModule.forRoot(
       routes
     ),
     HttpClientModule
   ],
   providers: [
-    ConfigService
+    HttpService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
