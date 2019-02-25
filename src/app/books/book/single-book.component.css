@@ -8,11 +8,11 @@
     color: #d3d3d3;
   }
   .full {
-    color: #2E8B57;
+    color: orange;
   }
   .half {
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    color: #2E8B57;
+    color: orange;
   }

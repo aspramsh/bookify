@@ -3,7 +3,7 @@
         <img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" alt="Book avatar" fxFlex="27">
         <span fxFlex="10"></span>
         <mat-card-content>
-          <h3>{{book.volumeInfo.title}}</h3>
+          <h3 style="margin-top: -10px">{{book.volumeInfo.title}}</h3>
             <h5>by {{book.volumeInfo.authors[0]}}</h5>
             <p>Category: {{book.volumeInfo.categories[0]}}</p>
             <p><ng-template #t let-fill="fill">
