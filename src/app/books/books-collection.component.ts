@@ -21,7 +21,11 @@ export class BooksCollectionComponent {
     constructor(private httpService: HttpService) { }
 
     ngOnInit() {
-        this.getBooksByQuery(['Durrell']);
+        let randomWords = require('random-words');
+
+        let word: string = randomWords();
+        
+        this.getBooksByQuery([word]);
 
         this.sortOptions = [
             {label: 'Newest First', value: '!publishedDate'},

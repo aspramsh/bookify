@@ -1,10 +1,10 @@
 <div fxLayout="column" fxLayoutAlign="center center">
 <mat-card class="example-card">
     <div style="margin-bottom: -32px" fxLayout="row">
-        <img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" alt="Book avatar" fxFlex="27">
+        <img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" alt="Book avatar" fxFlex="35" height="192" width="128">
         <span fxFlex="10"></span>
         <mat-card-content>
-          <h3 style="margin-top: -10px">{{book.volumeInfo.title}}</h3>
+          <h3 style="margin-top: -10px;">{{book.volumeInfo.title}}</h3>
             <h5>by {{book.volumeInfo.authors[0]}}</h5>
             <p>Category: {{book.volumeInfo.categories[0]}}</p>
             <p><ng-template #t let-fill="fill">
@@ -17,7 +17,7 @@
 
               </ngb-rating> - {{book.volumeInfo.averageRating}} avg rating</p>
             
-          <button mat-raised-button class="center-button">Details</button>
+          <button mat-raised-button class="single-book-button">Details</button>
           </mat-card-content>
       </div>
     </mat-card>
