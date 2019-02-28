@@ -19,12 +19,10 @@
 
   .single-book-button {
     display: flex;
-    width: 60%;
-    margin: 10px auto 20px;
+    width: 100px;
     background-color: #2E8B57;
     color: white;
     justify-content: center;
     text-align: center;
-    margin-left: 40px;
     margin-top: 0px
   }

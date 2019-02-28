@@ -39,3 +39,11 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   justify-content: center;
   text-align: center
 }
+
+.ui-paginator-page.ui-paginator-element.ui-state-default.ui-corner-all.ng-star-inserted.ui-state-active {
+  background-color: #2E8B57;
+}
+
+.ui-button {
+  background-color: #2E8B57 !important;
+}
