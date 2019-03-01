@@ -47,3 +47,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .ui-button {
   background-color: #2E8B57 !important;
 }
+
+.ng-tns-c8-1.ui-dropdown-item.ui-corner-all.ui-state-highlight.ng-star-inserted {
+  background-color: #2E8B57 !important;
+}

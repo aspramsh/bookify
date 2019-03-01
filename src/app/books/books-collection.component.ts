@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { SelectItem } from "node_modules/primeng/components/common/selectitem";
 import { Book } from "../Interfaces/book";
 import { HttpService } from "../http/http.service";
 
@@ -8,9 +9,13 @@ import { HttpService } from "../http/http.service";
 })
 export class BooksCollectionComponent {
     books: Book[];
+    sortOptions: SelectItem[];
 
-    page = 0;
-    size = 4;
+    sortKey: string;
+
+    sortField: string;
+
+    sortOrder: number;
 
     constructor(private httpService: HttpService) { }
 
@@ -20,6 +25,11 @@ export class BooksCollectionComponent {
         let word: string = randomWords();
         
         this.getBooksByQuery([word]);
+
+        this.sortOptions = [
+            {label: 'First published', value: '!volumeInfo.publishedDate'},
+            {label: 'Newest published', value: 'volumeInfo.publishedDate'}
+        ];
 
     }
 
@@ -35,4 +45,19 @@ export class BooksCollectionComponent {
           this.books = <Book[]>data['items'];
         });
     }
+
+    onSortChange(event) {
+        let value = event.value;
+
+        if (value.indexOf('!') === 0) {
+            this.sortOrder = -1;
+            this.sortField = value.substring(1, value.length);
+        }
+        else {
+            this.sortOrder = 1;
+            this.sortField = value;
+        }
+    }
+
+
 }

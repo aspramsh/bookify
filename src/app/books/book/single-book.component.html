@@ -1,12 +1,12 @@
-<table>
+<table *ngIf="book.volumeInfo.imageLinks.smallThumbnail !== undefined && book.volumeInfo.title.length <= 60">
     <tr>
         <td><img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" 
-          alt="Book avatar" height="192" width="128"></td>
+          alt="book.volumeInfo.title" height="192" width="128"></td>
         <td><div class="art-header">
             <h4>{{book.volumeInfo.title}}</h4>
           </div>
-          <p>by {{book.volumeInfo.authors[0]}}</p>
-          <p>Category: {{book.volumeInfo.categories[0]}}</p>
+          <p>by {{authors}}</p>
+          <p>Category: {{categories}}</p>
           <p><ng-template #t let-fill="fill">
               <span class="star" [class.full]="fill === 100">
                 <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
