@@ -1,4 +1,4 @@
-<p-dataView #dv [value]="books" [paginator]="true" [rows]="4" paginatorPosition="both" filterBy="brand"
+<p-dataView #dv [value]="books" [paginator]="true" [rows]="6" paginatorPosition="both" filterBy="brand"
     [sortField]="sortField" [sortOrder]="sortOrder">
     <p-header>
         <div class="ui-helper-clearfix">
@@ -6,20 +6,22 @@
                 <div class="ui-g-12 ui-md-4">
                     <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
                 </div>
-                <div class="ui-g-6 ui-md-4 filter-container">
-                    <div style="position:relative">
-                        <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
-                    </div>
-                </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">
                     <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
                 </div>
             </div>
         </div>
     </p-header>
+    <ng-template let-book pTemplate="listItem">
+            <div style="padding: 2em; border-bottom: 1px solid #d9d9d9;">
+                    <div style="margin-left: 30%">
+                        <single-book [book]="book"></single-book>
+                    </div>
+            </div>
+        </ng-template>    
     <ng-template let-book pTemplate="gridItem">
-            <div class="ui-g-12">
-                <single-book></single-book>
+            <div class="ui-lg-4 ui-md-4 ui-g-4">
+                <single-book [book]="book"></single-book>
            </div>
     </ng-template>
 </p-dataView>

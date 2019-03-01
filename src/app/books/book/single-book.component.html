@@ -1,24 +1,22 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-<mat-card class="example-card">
-    <div style="margin-bottom: -32px" fxLayout="row">
-        <img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" alt="Book avatar" fxFlex="27">
-        <span fxFlex="10"></span>
-        <mat-card-content>
-          <h3 style="margin-top: -10px">{{book.volumeInfo.title}}</h3>
-            <h5>by {{book.volumeInfo.authors[0]}}</h5>
-            <p>Category: {{book.volumeInfo.categories[0]}}</p>
-            <p><ng-template #t let-fill="fill">
-                <span class="star" [class.full]="fill === 100">
-                  <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
-                </span>
-              </ng-template>
-              
-              <ngb-rating [(rate)]="book.volumeInfo.averageRating" [starTemplate]="t" [readonly]="true" max="5">
-
-              </ngb-rating> - {{book.volumeInfo.averageRating}} avg rating</p>
+<table>
+    <tr>
+        <td><img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" 
+          alt="Book avatar" height="192" width="128"></td>
+        <td><div class="art-header">
+            <h4>{{book.volumeInfo.title}}</h4>
+          </div>
+          <p>by {{book.volumeInfo.authors[0]}}</p>
+          <p>Category: {{book.volumeInfo.categories[0]}}</p>
+          <p><ng-template #t let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+              </span>
+            </ng-template>
             
-          <button mat-raised-button class="center-button">Details</button>
-          </mat-card-content>
-      </div>
-    </mat-card>
-  </div>
+            <ngb-rating [(rate)]="book.volumeInfo.averageRating" [starTemplate]="t" [readonly]="true" max="5">
+
+            </ngb-rating> - {{book.volumeInfo.averageRating}} avg rating</p>
+          <button mat-raised-button class="single-book-button">Details</button>
+      </td>
+    </tr>
+</table>
