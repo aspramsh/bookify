@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
-import { HttpService } from "../http/http.service";
-import { Book } from "../Interfaces/book";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'search-component',
@@ -11,31 +9,20 @@ import { Book } from "../Interfaces/book";
     ]
 })
 export class SearchComponent implements OnInit {
-    searchValue: string = '';
+    tokens: string[];
 
-    books: Book[];
-
-    constructor(private httpService: HttpService) {}
+    constructor(private router: Router) {
+    }
 
     ngOnInit() {
     }
 
-    private getBooksByQuery(tokens: string[]) {
-        let query: string = tokens[0];
-        for (let i = 1; i < tokens.length; ++i) {
-            query += '+' + tokens[i];
+    onEnter(value: string) {
+        this.tokens = value.split(" ") ;
+        let query: string = this.tokens[0];
+        for (let i = 1; i < this.tokens.length; ++i) {
+            query += '+' + this.tokens[i];
         }
-        
-        this.httpService.getBooks(query)
-          .subscribe((data) => {
-          this.books = <Book[]>data['items'];
-        });
-    }
-
-    onEnter(value: string) { 
-        this.searchValue = value;
-        let tokens: string[] = value.split(" ");
-
-        this.getBooksByQuery(tokens);
+        this.router.navigate(['/book-lists/' + ':' + query]);
     }
 }

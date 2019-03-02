@@ -20,7 +20,7 @@
             </div>
         </ng-template>    
     <ng-template let-book pTemplate="gridItem">
-            <div class="ui-lg-4 ui-md-4 ui-g-4">
+            <div *ngIf="book.volumeInfo.imageLinks !== undefined" class="ui-lg-4 ui-md-4 ui-g-4">
                 <single-book [book]="book"></single-book>
            </div>
     </ng-template>
