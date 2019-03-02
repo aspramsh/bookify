@@ -1,5 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+
 import { SelectItem } from "node_modules/primeng/components/common/selectitem";
+
 import { Book } from "../Interfaces/book";
 import { HttpService } from "../http/http.service";
 
@@ -8,7 +11,9 @@ import { HttpService } from "../http/http.service";
     templateUrl: './books-collection.component.html'
 })
 export class BooksCollectionComponent {
-    books: Book[];
+    tokens: string;
+
+    books: Book[] = [];
     sortOptions: SelectItem[];
 
     sortKey: string;
@@ -17,14 +22,19 @@ export class BooksCollectionComponent {
 
     sortOrder: number;
 
-    constructor(private httpService: HttpService) { }
+    constructor(private httpService: HttpService, private route: ActivatedRoute) {
+    }
 
     ngOnInit() {
-        let randomWords = require('random-words');
-
-        let word: string = randomWords();
+        this.tokens = this.route.snapshot.params['query'];
         
-        this.getBooksByQuery([word]);
+        if (!this.tokens) {
+            let randomWords = require('random-words');
+            let word: string = randomWords();
+            this.tokens = word;
+        }
+        
+        this.getBooksByQuery(this.tokens);
 
         this.sortOptions = [
             {label: 'First published', value: '!volumeInfo.publishedDate'},
@@ -33,16 +43,11 @@ export class BooksCollectionComponent {
 
     }
 
-    // Delete this later
-    private getBooksByQuery(tokens: string[]) {
-        let query: string = tokens[0];
-        for (let i = 1; i < tokens.length; ++i) {
-            query += '+' + tokens[i];
-        }
-        
-        this.httpService.getBooks(query)
+    private getBooksByQuery(tokens: string) { 
+        this.httpService.getBooks(tokens)
           .subscribe((data) => {
           this.books = <Book[]>data['items'];
+          this.books = this.books.filter(b => b.volumeInfo.title.length <= 60);
         });
     }
 
