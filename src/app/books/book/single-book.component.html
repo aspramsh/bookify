@@ -5,8 +5,8 @@
         <td><div class="art-header">
             <h4>{{book.volumeInfo.title}}</h4>
           </div>
-          <p>Author: {{authors}}</p>
-          <p>Category: {{categories}}</p>
+          <p><b>Author:</b> {{authors}}</p>
+          <p><b>Category:</b> {{categories}}</p>
           <p><ng-template #t let-fill="fill">
               <span class="star" [class.full]="fill === 100">
                 <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;

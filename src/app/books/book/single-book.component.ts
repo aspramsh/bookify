@@ -20,11 +20,11 @@ export class SingleBookComponent implements OnInit{
     ngOnInit() {
         if (this.book && this.book.volumeInfo) {
             if (this.book.volumeInfo.authors) {
-                this.authors = this.book.volumeInfo.authors.join(' , ');
+                this.authors = this.book.volumeInfo.authors.join(', ');
             }
             
             if (this.book.volumeInfo.categories) {
-                this.categories = this.book.volumeInfo.categories.join(' , ');
+                this.categories = this.book.volumeInfo.categories.join(', ');
             }
         }
     }   
