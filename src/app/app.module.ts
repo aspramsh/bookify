@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
 import { SingleBookComponent } from './books/book/single-book.component';
 import { BooksCollectionComponent } from './books/books-collection.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BooksCollectionComponent } from './books/books-collection.component';
     NavigationComponent,
     SearchComponent,
     BooksCollectionComponent,
-    SingleBookComponent
+    SingleBookComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
