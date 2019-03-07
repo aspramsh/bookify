@@ -1,0 +1,20 @@
+<!-- The App Section -->
+<div *ngIf="book != undefined" class="container">
+  <div class="row">
+    <div class="column-66">
+      <h1 class="xlarge-font"><b>{{book?.volumeInfo.title}}</b></h1>
+      <h1 class="large-font" style="color:#2E8B57;"><b>Author: </b>{{authors}}</h1>
+      <p><b>Category:</b> {{categories}}</p>
+      <p [innerHTML]="book.volumeInfo.description"></p>
+      <div class="outer">
+          <button type="button" mat-raised-button class="inner" (click)="onNavigate(this.book.volumeInfo.infoLink)">Google Page</button>
+          <button type="button" mat-raised-button class="inner" (click)="onNavigate(this.book.accessInfo?.webReaderLink)">Read Online</button>
+          <button *ngIf="book.accessInfo?.pdf?.isAvailable" type="button" 
+          mat-raised-button class="inner" (click)="onNavigate(this.book.accessInfo?.pdf?.acsTokenLink)">Download PDF</button>
+    </div>
+    </div>
+    <div class="column-33">
+        <img src={{book.volumeInfo.imageLinks.thumbnail}} width="300" height="450" >
+    </div>
+  </div>
+</div>

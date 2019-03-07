@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Book } from "src/app/Interfaces/book";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'single-book',
@@ -15,17 +16,21 @@ export class SingleBookComponent implements OnInit{
 
     categories: string = 'Not Specified';
     
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit() {
         if (this.book && this.book.volumeInfo) {
             if (this.book.volumeInfo.authors) {
-                this.authors = this.book.volumeInfo.authors.join(' , ');
+                this.authors = this.book.volumeInfo.authors.join(', ');
             }
             
             if (this.book.volumeInfo.categories) {
-                this.categories = this.book.volumeInfo.categories.join(' , ');
+                this.categories = this.book.volumeInfo.categories.join(', ');
             }
         }
-    }   
+    }
+    
+    getDeatails(): void {
+        this.router.navigate(['/book-details/' + this.book.id]);
+    }
 }

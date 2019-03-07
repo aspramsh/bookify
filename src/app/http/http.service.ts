@@ -11,6 +11,7 @@ import { Book } from '../Interfaces/book';
 export class HttpService {
     configUrl = 'assets/config.json';
     bookSearchUrl = "https://www.googleapis.com/books/v1/volumes?q=";
+    bookDetailsUrl = "https://www.googleapis.com/books/v1/volumes/"
 
     constructor(private http: HttpClient) { }
     
@@ -24,6 +25,14 @@ export class HttpService {
 
     getBooks(query: string) {
       return this.http.get<Book[]>(this.bookSearchUrl + query)
+        .pipe(
+            retry(3),
+            catchError(this.handleError)
+        );
+    }
+
+    getBookDetail(id: string) {
+      return this.http.get<Book>(this.bookDetailsUrl + id)
         .pipe(
             retry(3),
             catchError(this.handleError)
