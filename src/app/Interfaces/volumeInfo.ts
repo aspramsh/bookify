@@ -1,4 +1,5 @@
 import { ImageLinks } from "./imageLinks";
+import { Pdf } from "./pdf";
 
 export interface VolumeInfo{
     title: string;

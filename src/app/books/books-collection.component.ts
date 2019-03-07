@@ -47,7 +47,8 @@ export class BooksCollectionComponent {
         this.httpService.getBooks(tokens)
           .subscribe((data) => {
           this.books = <Book[]>data['items'];
-          this.books = this.books.filter(b => b.volumeInfo.title.length <= 60);
+          this.books = this.books.filter(b => b.volumeInfo.title.length <= 60 
+            && b.volumeInfo.imageLinks !== undefined);
         });
     }
 

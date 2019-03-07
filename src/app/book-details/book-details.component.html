@@ -1,18 +1,20 @@
-<div style="text-align:center">
-  <h2>Responsive Zig Zag Layout Example</h2>
-  <p>Resize the browser window to see the effect.</p>
-</div>
 <!-- The App Section -->
-<div class="container">
+<div *ngIf="book != undefined" class="container">
   <div class="row">
     <div class="column-66">
-      <h1 class="xlarge-font"><b>The App</b></h1>
-      <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
-      <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-      <button class="button">Download Application</button>
+      <h1 class="xlarge-font"><b>{{book?.volumeInfo.title}}</b></h1>
+      <h1 class="large-font" style="color:#2E8B57;"><b>Author: </b>{{authors}}</h1>
+      <p><b>Category:</b> {{categories}}</p>
+      <p [innerHTML]="book.volumeInfo.description"></p>
+      <div class="outer">
+          <button type="button" mat-raised-button class="inner" (click)="onNavigate(this.book.volumeInfo.infoLink)">Google Page</button>
+          <button type="button" mat-raised-button class="inner" (click)="onNavigate(this.book.accessInfo?.webReaderLink)">Read Online</button>
+          <button *ngIf="book.accessInfo?.pdf?.isAvailable" type="button" 
+          mat-raised-button class="inner" (click)="onNavigate(this.book.accessInfo?.pdf?.acsTokenLink)">Download PDF</button>
+    </div>
     </div>
     <div class="column-33">
-        <img src="http://books.google.com/books/content?id=CrJeDwAAQBAJ&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE73QTUWbjVzgnqGXxLNAk1Ei5aip0my-OWJDYZW8ALZVXs2BLENTD7f1es9AsL4rfKWQyYmwsYow-SkHColLaMIQwX8w1tEp6e2MTMistO4Udc6azBl_pNtFcTdJfiTu42eRnJQQ&source=gbs_api" width="335" height="471" >
+        <img src={{book.volumeInfo.imageLinks.thumbnail}} width="300" height="450" >
     </div>
   </div>
 </div>

@@ -62,3 +62,17 @@ img {
     margin: auto;
   }
 }
+
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+    background-color: #2E8B57;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}

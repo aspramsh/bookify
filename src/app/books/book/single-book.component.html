@@ -11,12 +11,12 @@
               <span class="star" [class.full]="fill === 100">
                 <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
               </span>
-            </ng-template>
+            </ng-template>st
             
             <ngb-rating [(rate)]="book.volumeInfo.averageRating" [starTemplate]="t" [readonly]="true" max="5">
 
             </ngb-rating> - {{book.volumeInfo.averageRating}} avg rating</p>
-          <button mat-raised-button class="single-book-button">Details</button>
+          <button type="button" mat-raised-button class="single-book-button" (click)=(getDeatails())>Details</button>
       </td>
     </tr>
 </table>

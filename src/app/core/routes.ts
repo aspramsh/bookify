@@ -10,5 +10,5 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent, data: { title: 'Search for Books' } },
     { path: 'book-lists/:query', component: BooksCollectionComponent, data: { title: 'Book Card'} },
     { path: 'book-lists', component: BooksCollectionComponent, data: { title: 'Book Card'} },
-    { path: 'book-details', component: BookDetailsComponent, data: { title: 'Book Card'} }
+    { path: 'book-details/:id', component: BookDetailsComponent, data: { title: 'Book Card'} }
 ]
