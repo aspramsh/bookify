@@ -9,6 +9,6 @@ export const routes: Routes = [
     { path: '', component: SearchComponent, data: { title: 'Search for Books' } },
     { path: 'search', component: SearchComponent, data: { title: 'Search for Books' } },
     { path: 'book-lists/:query', component: BooksCollectionComponent, data: { title: 'Book Card'} },
-    { path: 'book-lists', component: BooksCollectionComponent, data: { title: 'Book Card'} },
+    { path: 'book-lists', component: BooksCollectionComponent, data: { title: 'Book Card'}, runGuardsAndResolvers: 'always' },
     { path: 'book-details/:id', component: BookDetailsComponent, data: { title: 'Book Card'} }
 ]

@@ -37,7 +37,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     PartialPrimeNgModule,
     NgbModule,
     RouterModule.forRoot(
-      routes
+      routes, {onSameUrlNavigation: 'reload'}
     ),
     HttpClientModule
   ],

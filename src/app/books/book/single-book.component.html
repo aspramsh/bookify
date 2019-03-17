@@ -5,7 +5,7 @@
         <td><div class="art-header">
             <h4>{{book.volumeInfo.title}}</h4>
           </div>
-          <p><b>Author:</b> {{authors}}</p>
+          <p><b>Author:</b> <a [routerLink]="['/book-lists/' + ':' + query]"> {{authors}}</a></p>
           <p><b>Category:</b> {{categories}}</p>
           <p><ng-template #t let-fill="fill">
               <span class="star" [class.full]="fill === 100">

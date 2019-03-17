@@ -41,6 +41,16 @@ export class BooksCollectionComponent {
             {label: 'Newest published', value: 'volumeInfo.publishedDate'}
         ];
 
+        this.route.params.subscribe(params => {
+            // PARAMS CHANGED .. TO SOMETHING REALLY COOL HERE ..
+       
+            // for example extract the query..
+            let query = params['query'];
+
+            this.getBooksByQuery(query);
+       
+          });
+
     }
 
     private getBooksByQuery(tokens: string) { 
