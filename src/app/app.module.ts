@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { SingleBookComponent } from './books/book/single-book.component';
 import { BooksCollectionComponent } from './books/books-collection.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { NotFoundComponent } from './shared/not-found.component';
 
 
 @NgModule({
@@ -26,12 +27,14 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     SearchComponent,
     BooksCollectionComponent,
     SingleBookComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     PartialMaterialModule,
     PartialPrimeNgModule,

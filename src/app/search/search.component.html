@@ -2,9 +2,15 @@
     <span><img src="./assets/search.jpg" class="center"></span>
 
     <mat-form-field class="example-full-width">
-      <input type="search" matInput #box (keydown.enter)="onEnter(box.value)" placeholder="search for books">
+      <input type="search" id="value" matInput #box (keydown.enter)="onEnter(box.value)" 
+        placeholder="search for books" [matAutocomplete]="auto" [formControl]="searchTerm">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option.word" style="color: #2E8B57">
+        {{ option.word }}
+      </mat-option>
+    </mat-autocomplete>
     <div style="text-align: center;">
     <button type="button" mat-raised-button class="center-button" (click)=(onEnter(box.value))>Discover</button>
     </div>
