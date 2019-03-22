@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Book } from "src/app/Interfaces/book";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'single-book',
@@ -12,16 +12,22 @@ import { Router } from "@angular/router";
 export class SingleBookComponent implements OnInit{
     @Input() book: Book;
 
+    query: string;
+
+    private sub: any;
+
     authors: string = 'Not Specified';
 
     categories: string = 'Not Specified';
     
-    constructor(private router: Router) { }
+    constructor(private router: Router,
+                private route: ActivatedRoute) { }
 
     ngOnInit() {
         if (this.book && this.book.volumeInfo) {
             if (this.book.volumeInfo.authors) {
                 this.authors = this.book.volumeInfo.authors.join(', ');
+                this.query = 'authors:' + this.authors.split(/[\s,]+/).join('+');
             }
             
             if (this.book.volumeInfo.categories) {

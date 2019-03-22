@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+
+import { throwError, Observable } from 'rxjs';
+import { catchError, retry, tap } from 'rxjs/operators';
 
 import { Config } from '../Interfaces/config';
 import { Book } from '../Interfaces/book';
+import { AutoCompleteWord } from '../Interfaces/autoCompleteWord';
 
 
 @Injectable()
 export class HttpService {
-    configUrl = 'assets/config.json';
-    bookSearchUrl = "https://www.googleapis.com/books/v1/volumes?q=";
-    bookDetailsUrl = "https://www.googleapis.com/books/v1/volumes/"
+    configUrl: string = 'assets/config.json';
+    bookSearchUrl: string = 'https://www.googleapis.com/books/v1/volumes?q=';
+    bookDetailsUrl: string = 'https://www.googleapis.com/books/v1/volumes/';
+    autocompleteUrl: string = 'https://api.datamuse.com/sug?s=';
 
     constructor(private http: HttpClient) { }
     
@@ -37,6 +40,14 @@ export class HttpService {
             retry(3),
             catchError(this.handleError)
         );
+    }
+
+    getAutoCompleteSuggestions(words: string) {
+      return this.http.get<AutoCompleteWord[]>(this.autocompleteUrl + words)
+        .pipe(
+          retry(3),
+          catchError(this.handleError)
+      )
     }
 
     private handleError(error: HttpErrorResponse) {

@@ -1,7 +1,17 @@
 import {NgModule} from "@angular/core";
 import { CommonModule } from '@angular/common';
 import {
-  MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatCardModule, MatGridListModule, MatPaginatorModule} from '@angular/material';
+  MatButtonModule, 
+  MatNativeDateModule, 
+  MatIconModule, 
+  MatSidenavModule, 
+  MatListModule, 
+  MatToolbarModule, 
+  MatCardModule, 
+  MatGridListModule, 
+  MatPaginatorModule, 
+  MatAutocompleteModule
+} from '@angular/material';
 import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
@@ -16,7 +26,8 @@ import { MatInputModule } from '@angular/material/input'
     MatInputModule,
     MatCardModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatAutocompleteModule
   ],
   exports: [
     CommonModule, 
@@ -29,7 +40,8 @@ import { MatInputModule } from '@angular/material/input'
     MatInputModule,
     MatCardModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatAutocompleteModule
   ],
 })
 export class PartialMaterialModule { }
