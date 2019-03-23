@@ -1,5 +1,5 @@
-import { Component, Input } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 import { SelectItem } from "node_modules/primeng/components/common/selectitem";
 
@@ -55,14 +55,14 @@ export class BooksCollectionComponent {
 
     private getBooksByQuery(tokens: string) { 
         this.httpService.getBooks(tokens)
-          .subscribe((data) => {
+          .subscribe((data: any) => {
           this.books = <Book[]>data['items'];
           this.books = this.books.filter(b => b.volumeInfo.title.length <= 60 
             && b.volumeInfo.imageLinks !== undefined);
         });
     }
 
-    onSortChange(event) {
+    onSortChange(event: any) {
         let value = event.value;
 
         if (value.indexOf('!') === 0) {

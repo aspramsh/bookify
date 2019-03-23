@@ -1,6 +1,6 @@
-import { Component, OnInit, OnChanges } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { debounceTime } from 'rxjs/operators';
 
 import { HttpService } from "../http/http.service";
