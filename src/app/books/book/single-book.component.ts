@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Book } from "src/app/Interfaces/book";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'single-book',
@@ -14,14 +14,11 @@ export class SingleBookComponent implements OnInit{
 
     query: string;
 
-    private sub: any;
-
     authors: string = 'Not Specified';
 
     categories: string = 'Not Specified';
     
-    constructor(private router: Router,
-                private route: ActivatedRoute) { }
+    constructor(private router: Router) { }
 
     ngOnInit() {
         if (this.book && this.book.volumeInfo) {

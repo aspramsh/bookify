@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 
 import { HttpService } from "../http/http.service";
 import { Book } from "../Interfaces/book";
@@ -18,7 +18,6 @@ export class BookDetailsComponent implements OnInit{
     categories: string = 'Not Specified';
 
     constructor(private httpService: HttpService,
-                private router: Router,
                 private route: ActivatedRoute) {}
 
     ngOnInit() {
